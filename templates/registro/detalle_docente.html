@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Detalle del Docente:</h1>
+    </div>
+    <div class="row">
+        <div class="card" style="width:400px"> 
+          {% if detalle_docente.avatar %}
+          <img class="card-img-top" src="{{detalle_docente.avatar.url}}" alt="Card image" style="width:100%"> 
+          {% else %}
+          <img class="card-img-top" src="{% static 'img/avatar.jpeg'%}" alt="Card image" style="width:100%">
+          {% endif %}
+            
+            <div class="card-body">
+              <h4 class="card-title-center">{{detalle_docente.last_name}}, {{detalle_docente.first_name}}</h4>
+              <p class="card-text-center">
+                <ul>
+                    <li>{{detalle_docente.age}} años</li>
+                    <li>{{detalle_docente.materia}}</li>
+                </ul>
+              </p>
+              <a href="{% url 'registro_app:update-docente' detalle_docente.id %}" class="btn btn-primary">Modificar</a>
+            </div>
+          </div>
+    </div>
+</div>    
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Detalle de la Materia:</h1>
+    </div>
+    <div class="row">
+        <div class="card" style="width:400px">
+          
+            <div class="card-body">
+              <h4 class="card-title-center">{{detalle_materia.name}}</h4>
+              <p class="card-text-center">
+                <ul>
+                    <li>{{detalle_materia.short_name}}</li>  
+                </ul>
+              </p>
+              <a href="{% url 'registro_app:update-materia' detalle_materia.id %}" class="btn btn-primary">Modificar</a>
+            </div>
+          </div>
+    </div>
+</div>
+    
+{% endblock content %}

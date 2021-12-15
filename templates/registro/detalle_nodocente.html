@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Detalle del No Docente:</h1>
+    </div>
+    <div class="row">
+        <div class="card" style="width:400px">
+          {% if detalle_nodocente.avatar %}
+          <img class="card-img-top" src="{{detalle_nodocente.avatar.url}}" alt="Card image" style="width:100%"> 
+          {% else %}
+          <img class="card-img-top" src="{% static 'img/avatar.jpeg'%}" alt="Card image" style="width:100%">
+          {% endif %}       
+            <div class="card-body">
+              <h4 class="card-title">{{detalle_nodocente.last_name}}, {{detalle_nodocente.first_name}}</h4>
+              <p class="card-text">
+                <ul>
+                    <li>{{detalle_nodocente.age}} años</li>
+                    <li>{{detalle_nodocente.oficina}}</li>
+                </ul>
+              </p>
+              <a href="{% url 'registro_app:update-nodocente' detalle_nodocente.id %}" class="btn btn-primary">Modificar</a>
+            </div>
+          </div>
+    </div>
+</div>
+    
+{% endblock content %}
